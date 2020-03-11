@@ -3,6 +3,7 @@
 # dependencies
 Asincronismo/node_modules
 /node_modules
+CursoProfesionalJS/node_modules
 /.pnp
 .pnp.js
 
@@ -22,3 +23,6 @@ Asincronismo/node_modules
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# High size video
+CursoProfesionalJS/assets/BigBuckBunny.mp4
