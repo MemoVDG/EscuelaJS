@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Scope</title>
+    </head>
+
+    <body>
+        <a href="/ejercicios/">Go back</a>
+        <p><em>Abre la consola</em></p>
+
+        <script>
+            // Global scope
+            // Se puede acceder desde la consola usando window.message
+            var message = "Hello world";
+
+            // Function scope
+            var $ = function(message) {
+                // La variable solo esta disponible dentro de la funcion
+                console.log('Say: ' +  message);
+            }
+            /*  Function scope var solo opera sobre la funcion
+                el resultado sera la impresion del numero 10, 10 veces
+            */
+            function printNumbers() {
+                for (var i = 0; i < 10; i++) {
+                    setTimeout(function() {
+                        console.log(i);
+                    }, 100)
+                }
+            }
+
+            // Block scope
+            /*  "let" opera sobre el block scope, por lo tanto
+                en este caso la secuencia sera del 0 al 10 
+            */
+            function printNumbers2() {
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(function() {
+                        console.log(i);
+                    }, 100)
+                }
+            }
+
+            /*  Module scope
+                La vida de una variable va a estar dentro del archivo, como en React
+                se refiere a cuando exportas con module.export = ....
+            */
+
+
+            printNumbers();
+            printNumbers2();
+
+        </script>
+    </body>
+</html>
