@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <title>This</title>
+</head>
+
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <ul>
+        <li><button class="call-to-action">Aprender</button></li>
+        <li><button class="call-to-action">Aprender Más</button></li>
+        <li><button class="call-to-action">¡Nunca parar de aprender!</button></li>
+    </ul>
+
+    <script>
+        // Establecer this usando call
+        function saludar() {
+            console.log(`Hola Soy ${this.name} ${this.apellido}`);
+        }
+
+        const richard = {
+            name: "Richard",
+            apellido: "Kaufman Lopez"
+        }
+
+        /*  En este caso se le esta pasando como un argumento de 'this' el elemento richard
+            lo que hace JS es que toma ese argumento como this y asi es como se pueden acceder a los elementos
+        */
+        saludar.call(richard)
+
+        function caminar(metros, direccion) {
+            console.log(`${this.name} camina ${metros} hacia ${direccion}`)
+        }
+
+        /*  Aunque recibe argumentos JS toma el primer argumento como el contexto de la funcion 
+            y los siguientes como argumentos de la funcion
+        */
+        caminar.call(richard, 400, 'Norte');
+
+
+        /*  Apply es parecido a call pero recibe una lista de valores, esto es mas facil cuando se tiene que pasar una
+            cantidad grande de argumentos
+        */
+        const valores = [400, 'Sur'];
+        caminar.apply(richard, valores);
+
+        /*
+         C -> call, son elementos separados por Comas
+         A -> apply, son elmentos pasados Arreglos
+        */
+
+        const daniel = {
+            name: "Daniel",
+            apellido: "Rivera"
+        }
+
+        /*   Bind crea una funcion "temporal" que despues debe ser llamada, asi como toma el contexto de this
+             al hacer esto se puede, guardar valores de variables, "parcialmente" dentro de la funcion
+        */
+
+        const danielSaluda = saludar.bind(daniel);
+        danielSaluda();
+
+        // Existen varias maneras en las que se puede llamar el bind con argumentos
+
+        //    const danielCamina = caminar.bind(daniel, 2000, 'Sur');
+        //    danielCamina();
+
+        //    const danielCamina = caminar.bind(daniel, 2000);
+        //    danielCamina(400, 'Sur');
+
+        const danielCamina = caminar.bind(daniel, 2000);
+        danielCamina('Sur');
+
+        const buttons = document.getElementsByClassName('call-to-action');
+        /*   Cuando se manda a traer elementos usando getElementBy... se regresa un NodeList
+             los NodeList no tienen la funcion forEach
+        */
+
+        //    buttons.forEach(button => {
+        //        button.onClick = () => alert('Nunca pares de aprener');
+        //    });
+
+        /*  En este caso ya nos los detecta porque se usa el buttons como contexto, al hacer esto ya se puede iterar
+            sobre los elementos
+        */
+
+        Array.prototype.forEach.call(buttons, button => {
+            button.onclick = () => alert('Nunca pares de aprener');
+        });
+
+
+    </script>
+</body>
+
+</html>
