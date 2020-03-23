@@ -1,0 +1,47 @@
+<html>
+
+<head>
+    <title>This</title>
+</head>
+
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Abre la consola</em></p>
+
+    <script>
+
+        // Ocupamos 'new', pero esa palabra es solo azucar sintactica
+        function Hero(name) {
+            /*  Al ocupar el new nos ahorramos esta linea y toma por defecto
+                los metodos definidos como prototype
+            */
+            // const hero = Object.create(Hero.prototype);
+            /*  Al no tener que definir el objecto a crear, se crea en el contexto this
+                y el return del objecto this queda implicito
+            */
+            this.name = name;
+            // return this;
+        }
+
+        Hero.prototype.saludar = function () {
+            console.log(`Chay  ${this.name}`);
+        }
+
+
+        const zelda = new Hero('Zelda');
+        console.log('Name: ',zelda.name);
+
+        console.log('Saludar: ', zelda.saludar);
+
+        console.log('toString: ', zelda.toString);
+
+        /*  Verificar si el objecto tiene la propiedad definida como tal
+            o viene heredada del objecto
+        */
+        console.log('zelda.hasOwnProperty("saludar"): ', zelda.hasOwnProperty("saludar"));
+        
+
+    </script>
+</body>
+
+</html>
