@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <title>This</title>
+</head>
+
+    <!-- Encuentra la diferencia entre dos cadenas -->
+    <script src="https://unpkg.com/fast-levenshtein@2.0.6/levenshtein.js" ></script>
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Los proxys nos sirven para interceptar llamadas</em></p>
+    <script>
+        // Los generadores se ponen con *
+        function* simpleGenerator() {
+            console.log('Generator start');
+            /* La funcion yield lo que hace es que normalmente corre la funcion
+                la primera vez pero si dentro de la funcion con generadores existe un yield
+                entonces la funcion se ejecuta hasta ese punto y puede o no regresar un valor
+                y para seguir ejecutando se llama la funcion con el .next() y llegara hasta el siguiente 
+                yield o hasta que acabe la funcion
+            */
+            yield 1;
+            yield 2;
+            yield 3;
+            console.log('Generator end');
+        }
+
+        const gen = simpleGenerator();
+        // Ejecuta la funcion hasta el yield o hasta que acabe la funcion dependiendo el caso
+        gen.next();
+        gen.next();
+        gen.next();
+        gen.next();
+
+        function* idMaker() {
+            let id = 1;
+            while(true) {
+                // La funcion se va a detener y regresa el di
+                yield id;
+                id = id + 1;
+            }
+        }
+
+        const newGen = idMaker();
+        console.log(newGen.next());
+
+
+        function* idMakerWithReset () {
+            let id = 1;
+            let reset;
+            while(true) {
+                // el yield puede recibir parametros
+                reset = yield id;
+                if(reset) {
+                    id = 1;
+                } else {
+                    id = id + 1;
+                }
+            }
+        }
+
+        const newGenWithReset = idMakerWithReset();
+        console.log(newGenWithReset.next());
+        console.log(newGenWithReset.next());
+        // Aca se le pasa un parametro al generador
+        console.log(newGenWithReset.next(true));
+
+        function* fibonacci() {
+            let a = 1;
+            let b = 1;
+            while (true) {
+                const nextNumber = a + b;
+                a = b;
+                b = nextNumber;
+                yield nextNumber;
+            }
+        }
+
+        const fib = fibonacci();
+        console.log(fib.next());
+        console.log(fib.next());
+        console.log(fib.next());
+        console.log(fib.next());
+
+    </script>
+</body>
+
+</html>
