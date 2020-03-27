@@ -1,0 +1,42 @@
+<html>
+
+<head>
+    <title>This</title>
+</head>
+
+    <!-- Encuentra la diferencia entre dos cadenas -->
+    <script src="https://unpkg.com/fast-levenshtein@2.0.6/levenshtein.js" ></script>
+<body>
+    <a href="/ejercicios/">Go back</a>
+    <p><em>Los proxys nos sirven para interceptar llamadas</em></p>
+    <script>
+        // Target = Objecto que se quiere interceptar
+
+        const target = {
+            red: 'Rojo',
+            green: 'Verde',
+            blue: 'Azul'
+        };
+
+        const handler = {
+            get(obj, prop) {
+                if (prop in obj){
+                    return obj[prop]
+                } 
+
+                const suggestion = Object.keys(obj).find(key => {
+                    return Levenshtein.get(key, prop) <= 3
+                })
+
+                if (suggestion) {
+                    console.log(`${prop} no se encontro, quisite decir ${suggestion}`)
+                }
+
+            return obj[prop];
+            }
+        }
+        const p = new Proxy(target, handler);
+    </script>
+</body>
+
+</html>

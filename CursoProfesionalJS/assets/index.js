@@ -4,7 +4,10 @@ const muteVideo = document.getElementById('mute');
 import MediaPlayer from './MediaPlayer.js';
 import AutoPlay from './plugins/AutoPlay.js';
 
-const player = new MediaPlayer({ el: video, plugins: [] });
+const player = new MediaPlayer({ el: video, plugins: [
+        new AutoPlay()
+    ] 
+});
 
 
 button.onclick = () => {
