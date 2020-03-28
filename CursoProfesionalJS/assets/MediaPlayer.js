@@ -1,3 +1,4 @@
+import AutoPlay from "../assets/plugins/AutoPlay";
 
 function MediaPlayer(config) {
     this.media = config.el;
@@ -20,7 +21,9 @@ MediaPlayer.prototype._initPlugins = function () {
     };
 
     this.plugins.forEach(plugin => {
-        plugin.run(player);
+        if(AutoPlay) {
+            plugin.run(player);
+        }
     })
 }
 
