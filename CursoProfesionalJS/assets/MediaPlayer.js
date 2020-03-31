@@ -1,4 +1,4 @@
-import AutoPlay from "../assets/plugins/AutoPlay";
+import AutoPlay from "../assets/plugins/AutoPlay.js";
 
 function MediaPlayer(config) {
     this.media = config.el;
@@ -21,9 +21,7 @@ MediaPlayer.prototype._initPlugins = function () {
     };
 
     this.plugins.forEach(plugin => {
-        if(AutoPlay) {
-            plugin.run(player);
-        }
+        plugin.run(player);
     })
 }
 
@@ -46,15 +44,15 @@ MediaPlayer.prototype.isPlaying = function () {
     }
 }
 
-MediaPlayer.prototype.mute = function() {
+MediaPlayer.prototype.mute = function () {
     this.media.muted = true;
 }
 
-MediaPlayer.prototype.unmute = function() {
+MediaPlayer.prototype.unmute = function () {
     this.media.muted = false;
 }
 
-MediaPlayer.prototype.sound = function() {
+MediaPlayer.prototype.sound = function () {
     this.media.muted = !this.media.muted;
 }
 

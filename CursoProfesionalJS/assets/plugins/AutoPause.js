@@ -1,9 +1,11 @@
 class AutoPause  {
     constructor() {
         this.threshold = 0.25;
+        // Pasamos el this a la instancia del objecto usando bind
+        this.handlerIntersection = this.handlerIntersection.bind(this)
     }
 
-    return(player) {
+    run(player) {
         this.player = player;
         /*  Funcion que recibe como PRIMER parametro que hubo una interseccion 
             en el objeto que se esta observando, y el SEGUNDO es un objeto de
@@ -13,16 +15,18 @@ class AutoPause  {
             threshold: this.threshold
         });
 
-        observer.observe(player.media);
+        observer.observe(this.player.media);
     }
 
     handlerIntersection(entries) {
         const entry = entries[0];
         console.log(entry);
 
-        const isVisible = entry.intersactionRatio >= this.threshold
-
-        if(isVisible) {
+        /*  Verificamos si esta en foco y sino pausamos
+            y si si reproducimos
+        */
+        console.log(entry.isIntersecting);
+        if(entry.isIntersecting) {
             this.player.play();
         } else {
             this.player.pause();
