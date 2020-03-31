@@ -2,7 +2,8 @@ class AutoPause  {
     constructor() {
         this.threshold = 0.25;
         // Pasamos el this a la instancia del objecto usando bind
-        this.handlerIntersection = this.handlerIntersection.bind(this)
+        this.handlerIntersection = this.handlerIntersection.bind(this);
+        this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
     }
 
     run(player) {
@@ -16,6 +17,20 @@ class AutoPause  {
         });
 
         observer.observe(this.player.media);
+
+        // Agregamos un listener para detectar cuando el usuario cambie de pestaña
+        document.addEventListener("visibilitychange", this.handleVisibilityChange);
+    }
+
+    handleVisibilityChange() {
+        const isVisible = document.visibilityState === 'visible';
+        console.log(isVisible);
+
+        if(isVisible) {
+            this.player.play();
+        } else {
+            this.player.pause();
+        }
     }
 
     handlerIntersection(entries) {
