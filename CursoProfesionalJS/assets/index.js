@@ -23,3 +23,13 @@ button.onclick = () => {
 muteVideo.onclick = () => {
     player.sound();
 }
+
+/*  Los service workers nos van a permitir guardar informacion cuando el usuario se encuentra offline
+*/
+// Verificamos si el navegador soporta serviceworkers
+if('serviceWorker' in navigator) {
+    // Registramos el archivo donde se encuentra el service worker
+    navigator.serviceWorker.register('/sw.js').catch(error => {
+        console.log(error.message);
+    })
+}
