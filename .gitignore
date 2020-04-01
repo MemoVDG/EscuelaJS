@@ -26,3 +26,7 @@ yarn-error.log*
 
 # High size video
 CursoProfesionalJS/assets/BigBuckBunny.mp4
+
+#Typescript
+CursoProfesionalJS/.cache
+CursoProfesionalJS/dist
