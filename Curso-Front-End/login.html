@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <!-- Header section  -->
+    <header class="header">
+      <img src="./logo.png" class="header__img" />
+      <div class="header__menu">
+        <div class="header__menu__profile">
+          <img src="./profile.png" alt="profile" />
+          <p>Perfil</p>
+        </div>
+        <ul>
+          <li><a href="/">Cuenta</a></li>
+          <li><a href="/">Cerrar Sesión</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <section class="login">
+      <section class="login__container">
+        <h2>Inicia Sesión</h2>
+        <form action="" class="login__container--form">
+          <input class="input" type="text" placeholder="Correo" />
+          <input class="input" type="password" placeholder="Contraseña" />
+          <button class="button">Iniciar sesión</button>
+          <div class="login__container--remember-me">
+            <input type="checkbox" id="cbox1" value="check" /> Recuerdame
+            <a href="/">Olvide mi contraseña</a>
+          </div>
+        </form>
+        <section class="login__container--social-media">
+          <div>
+            <img
+              src="https://img.icons8.com/material/24/000000/google.png"
+              alt="google-icon"
+            />Inicia Sesión con Google
+          </div>
+          <div>
+            <img
+              alt="twwiter-icon"
+              src="https://img.icons8.com/android/24/000000/twitter.png"
+            />Inicia Sesión con Twiiter
+          </div>
+        </section>
+        <p class="login__container--register">
+          No tienes ninguna cuenta <a href="/">Registrate</a>
+        </p>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <a href="/">Terminos de uso</a>
+      <a href="/">Declaracion de Privacidad</a>
+      <a href="/">Centro de ayuda</a>
+    </footer>
+  </body>
+</html>
