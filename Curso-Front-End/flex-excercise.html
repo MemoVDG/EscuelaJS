@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicso flex</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      /* flex-flow: column; */
+      height: 100vh;
+      flex-direction: column;
+      font-size: 16px;
+    }
+    .header {
+      outline: 1px solid blue;
+      height: 3rem;
+    }
+
+    .container {
+      display: flex;
+      height: inherit;
+    }
+
+    .footer {
+      height: 6rem;
+      margin-top: auto;
+      outline: 1px solid yellow;
+    }
+
+    .content {
+      outline: 1px solid salmon;
+      flex: 1;
+    }
+
+    .aside {
+      outline: 1px solid green;
+      /* flex-grow and flex-shrink  se resumen con flex*/
+      flex: 0 0 25%;
+    }
+
+    .menu {
+      display: flex;
+    }
+
+    .menu-item {
+      list-style: none;
+      flex: 1;
+      line-height: 3rem;
+      text-align: center;
+      outline: 1px solid yellowgreen;
+      transition: flex 0.5s;
+    }
+
+    .menu-item:hover {
+      flex: 8;
+    }
+  </style>
+  <body>
+    <header class="header">
+      <ul class="menu">
+        <li class="menu-item">Home</li>
+        <li class="menu-item">Gallery</li>
+        <li class="menu-item">About</li>
+        <li class="menu-item">Contacto</li>
+      </ul>
+    </header>
+    <section class="container">
+      <section class="content">
+        content
+      </section>
+      <section class="aside">
+        aside
+      </section>
+    </section>
+    <footer class="footer">
+      footer
+    </footer>
+  </body>
+</html>
