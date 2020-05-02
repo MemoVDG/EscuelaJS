@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   background: linear-gradient(#21c08b, #ab88ff);
 }
 
@@ -51,18 +51,18 @@ ul:hover {
   text-decoration: underline;
 }
 
-.header__menu__profile {
+.header__menu--profile {
   margin-right: 8px;
   display: flex;
   align-items: center;
 }
 
-.header__menu__profile img {
+.header__menu--profile img {
   margin-right: 8px;
   width: 40px;
 }
 
-.header__menu__profile p {
+.header__menu--profile p {
   margin: 0px;
   color: white;
 }
@@ -150,7 +150,7 @@ ul:hover {
   border-right: none;
   border-top: none;
   border-bottom: 2px solid white;
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   font-size: 16px;
   margin-bottom: 20px;
   padding: 0px 20px;
@@ -168,7 +168,7 @@ ul:hover {
   border-radius: 25px;
   color: white;
   cursor: pointer;
-  font-family: "Muli", sans-serif;
+  font-family: 'Muli', sans-serif;
   font-size: 16px;
   font-weight: bold;
   height: 50px;
@@ -233,7 +233,7 @@ ul:hover {
 .input {
   border: 2px solid white;
   border-radius: 25px;
-  font-family: "Muli", "sans-serif";
+  font-family: 'Muli', 'sans-serif';
   font-size: 16px;
   height: 50px;
   padding: 0px 20px;
@@ -304,7 +304,12 @@ ul:hover {
 }
 
 .carousel-item__details {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9),
+    0%,
+    rgba(0, 0, 0, 0) 100%
+  );
   font-size: 10px;
   opacity: 1;
   transition: 450ms opacity;
