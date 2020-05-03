@@ -270,6 +270,15 @@ ul:hover {
   padding-bottom: 10px;
 }
 
+.carousel__cointaier:hover .carousel-item {
+  opacity: 0.3;
+}
+
+.carousel__cointaier:hover .carousel-item:hover {
+  transform: scale(1.5);
+  opacity: 1;
+}
+
 .carousel-item {
   display: inline-block;
   width: 200px;
@@ -286,15 +295,6 @@ ul:hover {
 
 .carousel-item:hover ~ .carousel-item {
   transform: translate3d(100px, 0, 0);
-}
-
-.carousel__cointaier:hover .carousel-item {
-  opacity: 0.3;
-}
-
-.carousel__cointaier:hover .carousel-item:hover {
-  transform: scale(1.5);
-  opacity: 1;
 }
 
 .carousel-item__img {

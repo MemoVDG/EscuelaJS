@@ -11,7 +11,7 @@ import useInitialState from '../hooks/useInitialState';
 
 const API = 'http://localhost:3000/initialState';
 
-const App = () => {
+const Home = () => {
 	// Le pasamos el url de la API y nos retorna la respuesta en JSON
 	const initialState = useInitialState(API);
 
@@ -53,4 +53,4 @@ const App = () => {
 	);
 };
 
-export default App;
+export default Home;
