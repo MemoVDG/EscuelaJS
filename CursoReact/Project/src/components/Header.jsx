@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/components/Header.scss';
+import '../assets/styles/components/Header.scss';
 import logo from '../assets/static/logo.png';
 import userIcon from '../assets/static/profile.png';
 
