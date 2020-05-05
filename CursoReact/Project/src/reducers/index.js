@@ -20,6 +20,26 @@ const reducer = (state, action) => {
 				// Filtramos y removemos del estado el item que se recibe
 				mylist: state.mylist.filter((items) => items.id !== action.payload),
 			};
+		case 'ADD_USER':
+			return {
+				...state,
+				user: payload,
+			};
+		case 'LOGIN_REQUEST':
+			return {
+				...state,
+				user: action.payload,
+			};
+		case 'LOGOUT_REQUEST':
+			return {
+				...state,
+				user: action.payload,
+			};
+		case 'REGISTER_REQUEST':
+			return {
+				...state,
+				user: action.payload,
+			};
 		default:
 			return state;
 	}
