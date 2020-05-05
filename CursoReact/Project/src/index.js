@@ -6,7 +6,7 @@ import App from './routes/App';
 
 //Integracion de redux
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import reducer from './reducers';
 
 const initialState = {
@@ -175,9 +175,12 @@ const initialState = {
 	],
 };
 
+//Variable para conectar la extension de REDUX con la app y poder hacer debug
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
 /* Creacion del store que recibe un reducer que viene de la carpeta reducer/index.js
  y el estado inicial de la app  */
-const store = createStore(reducer, initialState);
+const store = createStore(reducer, initialState, composeEnhancers());
 
 ReactDOM.render(
 	/* Proporcionamos el estado inicial al provider y el reducer que hara los cambios

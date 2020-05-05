@@ -14,7 +14,6 @@
 	font-size: 16px;
 	height: 50px;
 	padding: 0px 20px;
-	width: 70%;
 	background-color: rgba(255, 255, 255, 0.1);
 }
 
@@ -24,4 +23,8 @@
 
 ::placeholder {
 	color: white;
+}
+
+.main .isHome {
+	width: 70%;
 }

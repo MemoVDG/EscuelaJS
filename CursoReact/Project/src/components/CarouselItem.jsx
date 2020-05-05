@@ -4,6 +4,7 @@ import '../assets/styles/components/CarouselItem.scss';
 // Conectamos con redux
 import { connect } from 'react-redux';
 import { setFavorite, removeFavorite } from '../actions';
+import { Link } from 'react-router-dom';
 
 const CarouselItem = (props) => {
 	const { id, cover, title, year, contentRating, duration, isList } = props;
@@ -27,11 +28,13 @@ const CarouselItem = (props) => {
 			<img className='carousel-item__img' src={cover} alt={title} />
 			<div className='carousel-item__details'>
 				<div>
-					<img
-						src='https://img.icons8.com/android/24/000000/play.png'
-						alt='play-icon'
-						className='carousel-item__details--img'
-					/>
+					<Link to={`/player/${id}`}>
+						<img
+							src='https://img.icons8.com/android/24/000000/play.png'
+							alt='play-icon'
+							className='carousel-item__details--img'
+						/>
+					</Link>
 
 					{isList ? (
 						<img
