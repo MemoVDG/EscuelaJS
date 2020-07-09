@@ -1,0 +1,21 @@
+.carousel {
+	width: 100%;
+	overflow: scroll;
+	padding: 30px;
+	position: relative;
+}
+
+.carousel__cointaier {
+	white-space: nowrap;
+	margin: 70px 0px;
+	padding-bottom: 10px;
+}
+
+.carousel__cointaier:hover .carousel-item {
+	opacity: 0.3;
+}
+
+.carousel__cointaier:hover .carousel-item:hover {
+	transform: scale(1.5);
+	opacity: 1;
+}
