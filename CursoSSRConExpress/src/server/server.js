@@ -1,6 +1,13 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import webpack from 'webpack'
+import React from 'react';
+import ReactDom from 'react-dom';
+import { Provider} from 'react-redux';
+import { createStore, compose} from 'redux';
+import {StaticRouter} from 'react-router-dom'
+import reducer from '../frontend/reducers';
+import intialState from '../frontend/intialState';
 
 dotenv.config();
 const {ENV, PORT} = process.env;
@@ -18,9 +25,6 @@ if(ENV === 'development'){
         hot: true,
 
     };
-
-    app.use(webpackDevMiddleware(compiler, serverConfig))
-    app.use(webpackHotMiddleware(compiler))
 }
 
 app.get('*', (req, res) => {
