@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // En lugar de mandar el contenedor principal directamente
 // exponemos nuestro manejador de rutas y el se encarga de despachar los elements
-import App from './routes/App';
 
 //Integracion de redux
 import { Provider } from 'react-redux';
 import { createStore, compose } from 'redux';
-import reducer from './reducers';
 
 // SSR
 import { createBrowserHistory } from 'history';
 import { Router } from 'react-router';
+import reducer from './reducers';
+import App from './routes/App';
 //import initialState from './intialState';
 
 const history = createBrowserHistory();
@@ -32,14 +32,14 @@ delete window.__PRELOADED_STATE__;
 // Hydrate nos sirve cuando hacemos SSR
 // y con el se esuchan los eventos de la aplicacion
 ReactDOM.hydrate(
-	/* Proporcionamos el estado inicial al provider y el reducer que hara los cambios
+  /* Proporcionamos el estado inicial al provider y el reducer que hara los cambios
     y regresara los cambios
   */
-	<Provider store={store}>
-		<Router history={history}>
-			{/* Envolvemos la app en el provider de react-redux  */}
-			<App />
-		</Router>
-	</Provider>,
-	document.getElementById('app')
+  <Provider store={store}>
+    <Router history={history}>
+      {/* Envolvemos la app en el provider de react-redux  */}
+      <App />
+    </Router>
+  </Provider>,
+  document.getElementById('app'),
 );
